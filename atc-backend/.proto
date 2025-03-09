@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package flight;
+
+service FlightService {
+    rpc GetFlights (FlightRequest) returns (FlightResponse);
+}
+
+message FlightRequest {
+    // Define request fields here
+}
+
+message FlightResponse {
+    repeated Flight flights = 1;
+}
+
+message Flight {
+    string callsign = 1;
+    double latitude = 2;
+    double longitude = 3;
+    double altitude = 4;
+    double velocity = 5;
+}

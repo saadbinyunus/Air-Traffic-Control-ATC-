@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+service FlightService {
+  rpc GetLiveFlights (FlightRequest) returns (FlightResponse);
+}
+
+message FlightRequest {
+  string area = 1; // Optional: Specify a region
+}
+
+message Flight {
+  string callsign = 1;
+  double latitude = 2;
+  double longitude = 3;
+  double altitude = 4;
+  double velocity = 5;
+}
+
+message FlightResponse {
+  repeated Flight flights = 1;
+}
