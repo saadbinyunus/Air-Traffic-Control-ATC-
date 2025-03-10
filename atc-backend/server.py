@@ -27,7 +27,7 @@ class FlightService(flight_pb2_grpc.FlightServiceServicer):
             return flight_pb2.FlightResponse(flights=flights)
 
         except requests.exceptions.RequestException as e:
-            print(f"❌ API Error: {e}")
+            print(f"API Error: {e}")
             return flight_pb2.FlightResponse(flights=[])
 
 def serve():
@@ -35,7 +35,7 @@ def serve():
     flight_pb2_grpc.add_FlightServiceServicer_to_server(FlightService(), server)
     server.add_insecure_port("[::]:50051")
     server.start()
-    print("✅ gRPC Server started on port 50051")
+    print("gRPC Server started on port 50051")
     server.wait_for_termination()
 
 if __name__ == "__main__":
